@@ -61,8 +61,9 @@ Resources:
           systemctl enable httpd
 
           echo "<html><body>
-          <h1>${InstanceDescription} 👏</h1>
-          <h2>Hola desde CloudFormation con GitHub 🚀</h2>
+          <h1>Hannah Cabarico Salazar</h1>
+          <h2>Codigo: 192367</h2>
+          <h2>Examen Final Arquitectura de Computadores</h2>
           </body></html>" > /var/www/html/index.html
 
 Outputs:
