@@ -60,16 +60,71 @@ Resources:
           systemctl start httpd
           systemctl enable httpd
 
-          echo "<html><body>
-          <h1>Hannah Cabarico Salazar</h1>
-          <h2>Codigo: 192367</h2>
-          <h2>Examen Final Arquitectura de Computadores</h2>
-          </body></html>" > /var/www/html/index.html
+          cat > /var/www/html/index.html <<EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <title>Examen Final Arquitectura de Computadores</title>
+
+            <style>
+              body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f4f4f4;
+                margin-top: 100px;
+              }
+
+              h1 {
+                color: #1f4e79;
+              }
+
+              h2 {
+                color: #333;
+              }
+
+              .mensaje {
+                color: green;
+                font-weight: bold;
+                margin-top: 20px;
+              }
+            </style>
+
+          </head>
+
+          <body>
+
+            <h1>Mariana Barbosa Torrado</h1>
+
+            <h2>Código: 0192338</h2>
+
+            <h2>Examen Final Arquitectura de Computadores</h2>
+
+            <p class="mensaje">
+              Hice un cambio en su EC2, modificando su UserData para personalizar esta página web.
+            </p>
+
+            <button onclick="mostrarMensaje()">
+              Ver mensaje
+            </button>
+
+            <script>
+              function mostrarMensaje() {
+                alert("UserData actualizado correctamente por Mariana Barbosa Torrado.");
+              }
+
+              console.log("UserData actualizado correctamente");
+            </script>
+
+          </body>
+          </html>
+          EOF
 
 Outputs:
 
   InstanceId:
+    Description: ID de la instancia EC2
     Value: !Ref MyEc2Github
 
   PublicIP:
+    Description: Dirección IP pública de la instancia
     Value: !GetAtt MyEc2Github.PublicIp
